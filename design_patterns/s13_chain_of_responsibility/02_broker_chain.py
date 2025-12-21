@@ -25,7 +25,7 @@ class Game:
         self.queries(sender, query)
 
 class CreatureModifier(ABC):
-    def __init__(self, game: Game, creature):
+    def __init__(self, game: Game, creature: "Creature"):
         self.game = game
         self.creature = creature
         self.game.queries.append(self.handle)
@@ -48,7 +48,7 @@ class DoubleAttackModifier(CreatureModifier):
             query.value *= 2
 
 class Creature:
-    def __init__(self, game, name, attack, defense):
+    def __init__(self, game: Game, name, attack, defense):
         self.initial_defense = defense
         self.initial_attack = attack
         self.name = name
