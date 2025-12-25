@@ -15,7 +15,6 @@ class Node:
 
 
 # Hàm DFS dùng STACK
-
 def depth_first_search(start_node):
 
     # Stack LIFO: nút thêm vào cuối sẽ được lấy trước
@@ -25,13 +24,13 @@ def depth_first_search(start_node):
     while stack:
         # Lấy nút cuối cùng trong stack và xoá nó.
         actual_node = stack.pop()
-        actual_node.visited = True # Đánh dấu đã duyệt
         print(actual_node.name)
 
         # Duyệt các nút kề
         for node in actual_node.adjacency_list:
             # nếu chưa duyệt
             if not node.visited:
+                actual_node.visited = True # Đánh dấu đã duyệt
                 # Thêm vào stack để duyệt sau
                 stack.append(node)
 
